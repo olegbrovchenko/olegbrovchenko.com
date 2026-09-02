@@ -123,9 +123,8 @@
   .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
   .filters button{font-family:var(--body);font-weight:500;font-size:14px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
   .filters button.on{background:var(--ink-strong);color:var(--paper);border-color:var(--ink-strong)}
-  .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+  .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;transition:opacity 160ms var(--ease-out)}
   a.card,.doc{border:none;display:block}
-  .wall{transition:opacity 160ms var(--ease-out)}
   .wall.swap{opacity:0}
   .card.hidden{display:none}
   .card img,.doc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;background:var(--card)}
