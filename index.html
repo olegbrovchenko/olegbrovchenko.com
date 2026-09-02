@@ -59,14 +59,15 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none}}
-  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.7;font-size:17px}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.7;font-size:17px;overflow-wrap:break-word}
+  p,.tl li,.co p,.doc .cap{text-wrap:pretty}
   .wrap{max-width:1040px;margin:0 auto;padding-inline:max(24px,env(safe-area-inset-left),env(safe-area-inset-right))}
   section{scroll-margin-top:var(--nav-h)}
   a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
   a:hover{border-bottom-color:var(--accent-day)}
   /* type ladder */
   h1{font-family:var(--display);font-weight:600;letter-spacing:-0.065em;line-height:.98;font-size:clamp(36px,6.5vw,72px);color:var(--ink-strong);white-space:nowrap}
-  h2{font-family:var(--display);font-weight:500;letter-spacing:-0.04em;line-height:1.1;font-size:clamp(26px,4vw,38px);color:var(--ink-strong);margin-bottom:28px}
+  h2{font-family:var(--display);font-weight:500;letter-spacing:-0.035em;line-height:1.1;font-size:clamp(26px,4vw,38px);color:var(--ink-strong);margin-bottom:28px}
   .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
   /* nav */
   nav{position:fixed;top:0;left:0;right:0;z-index:10;color:#fff;background:transparent;border-bottom:1px solid transparent;transition:background .25s,color .25s,border-color .25s}
@@ -128,7 +129,7 @@
   /* companies */
   .cos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .co{border:1px solid var(--line);border-radius:8px;padding:30px}
-  .co h3{font-family:var(--display);font-weight:500;letter-spacing:-0.03em;font-size:22px;color:var(--ink-strong);margin-bottom:8px}
+  .co h3{font-family:var(--display);font-weight:500;letter-spacing:-0.035em;font-size:22px;color:var(--ink-strong);margin-bottom:8px}
   .co p{font-size:15px;color:var(--ink)}
   .co .label{margin-top:16px;display:inline-block}
   /* topics + connect */
@@ -156,6 +157,7 @@
     .connect .wrap{text-align:center}
     .capture{margin-inline:auto}
     .capture form{justify-content:center}
+    .capture input{font-size:16px}
     .catalog-line{text-align:center}
     /* phone: full-bleed 9:19.5 photo, copy over the dark bottom, numbers are the first scroll */
     header.hero{text-align:center;height:auto;display:block}
@@ -216,8 +218,8 @@
   </div>
   <div class="bio">
     <p>Oleg Brovchenko is a filmmaker and content strategist based in Madrid. Born in Ukraine, he picked up a camera at 14 and taught himself the craft; in 2015 he left for Spain and rebuilt from zero, not speaking a word of Spanish.</p>
-    <p>What followed was a climb from barbershop videos in Lorca to directing productions for some of Spain's biggest urban artists, with a combined catalog of over 620 million views. In 2024 he founded Full Drill Production S.L., which managed over €1M in production budgets in its first full year.</p>
-    <p>Today he runs a one-man AI-powered studio: an AI content operation handles the machine work while he directs, films, and documents how it's done for the next generation of creators.</p>
+    <p>What followed was a climb from barbershop videos in Lorca to directing productions for some of Spain’s biggest urban artists, with a combined catalog of over 620 million views. In 2024 he founded Full Drill Production S.L., which managed over €1M in production budgets in its first full year.</p>
+    <p>Today he runs a one-man AI-powered studio: an AI content operation handles the machine work while he directs, films, and documents how it’s done for the next generation of creators.</p>
   </div>
 </div></section>
 
@@ -241,24 +243,24 @@
       </div></details></li>
     <li><span class="yr">2019</span>Goes full-time creating content for a Murcia tattoo studio. Three and a half years of daily reps.
       <details class="more"><summary>Read more</summary><div class="exp">
-      <p>At the end of 2019 he went full-time at a tattoo studio in Murcia, as the content and camera person for the studio and its barbershop. On top of the on-site work, he remotely managed the studio's Los Angeles operation, running the online presence of more than twenty tattoo artists at once.</p>
+      <p>At the end of 2019 he went full-time at a tattoo studio in Murcia, as the content and camera person for the studio and its barbershop. On top of the on-site work, he remotely managed the studio’s Los Angeles operation, running the online presence of more than twenty tattoo artists at once.</p>
       <p>Three and a half years of daily reps: shooting every day, editing every day, grading every day in DaVinci Resolve, which had become his tool of choice in 2017 and never left the center of his workflow. These were the volume years, thousands of small pieces of content that nobody remembers individually, and exactly the training that made the big productions later feel manageable. Craft is built where nobody is watching.</p>
       </div></details></li>
-    <li><span class="yr">2022</span>First professional crewed production ("Ice en mi cuello", Camin). "Esquina" ft. JC Reyes hits 13M views and gold. Gear stolen the same year; the story reaches national TV. Rebuilds.
+    <li><span class="yr">2022</span>First professional crewed production (“Ice en mi cuello”, Camin). “Esquina” ft. JC Reyes hits 13M views and gold. Gear stolen the same year; the story reaches national TV. Rebuilds.
       <details class="more"><summary>Read more</summary><div class="exp">
-      <p>The turning point started as a party. One night in a house in the Sierra Nevada put him in a room with Spain's next wave of urban artists and the people around them, and the connections made that night changed the trajectory. Camin's team hired him, and "Ice en mi cuello" became his first true production with an assembled crew: the moment he stopped being a solo shooter and started running sets.</p>
-      <p>That summer, "Esquina" with JC Reyes exploded past 13 million views and went gold, and a second Camin video crossed 10 million more. The artists he filmed were becoming national names, and his name traveled with the credits.</p>
+      <p>The turning point started as a party. One night in a house in the Sierra Nevada put him in a room with Spain’s next wave of urban artists and the people around them, and the connections made that night changed the trajectory. Camin’s team hired him, and “Ice en mi cuello” became his first true production with an assembled crew: the moment he stopped being a solo shooter and started running sets.</p>
+      <p>That summer, “Esquina” with JC Reyes exploded past 13 million views and went gold, and a second Camin video crossed 10 million more. The artists he filmed were becoming national names, and his name traveled with the credits.</p>
       <p>Then the year tested him. Thieves smashed his car window and took the gear and the hard drives that held his working life, years of work and every tool he owned. The post about it reached hundreds of thousands of people, artists reshared it, and the story made national television. He rebuilt the kit piece by piece, upgraded in the process, and kept shooting. The lesson stuck: everything can disappear in one night, and the only unstealable asset is the skill.</p>
       </div></details></li>
-    <li><span class="yr">2023</span>"Cosas que no te dije" (Saiko): 108M views. Moves to Madrid.
+    <li><span class="yr">2023</span>“Cosas que no te dije” (Saiko): 108M views. Moves to Madrid.
       <details class="more"><summary>Read more</summary><div class="exp">
-      <p>In August he shot his first work with Saiko, and "Cosas que no te dije" became the biggest credit of his career: past 108 million views on YouTube and hundreds of millions of streams, with his name in the intro, the outro, and the description of a song the whole country knew.</p>
+      <p>In August he shot his first work with Saiko, and “Cosas que no te dije” became the biggest credit of his career: past 108 million views on YouTube and hundreds of millions of streams, with his name in the intro, the outro, and the description of a song the whole country knew.</p>
       <p>The scale of everything changed that year. He handled his first six-figure production budget, the kind of job a freelancer cannot even invoice alone, which planted the seed of what would become his company. In the summer he moved to Madrid, where the artists, the labels, and the productions actually live. Local was over; from here on, the work was national.</p>
       </div></details></li>
-    <li><span class="yr">2024</span>Founds Full Drill Production S.L. Leads the audiovisual production of Saiko's "Sakura" rollout, one of the year's most anticipated Spanish albums. €1M+ in budgets managed in the company's first year.
+    <li><span class="yr">2024</span>Founds Full Drill Production S.L. Leads the audiovisual production of Saiko’s “Sakura” rollout, one of the year’s most anticipated Spanish albums. €1M+ in budgets managed in the company’s first year.
       <details class="more"><summary>Read more</summary><div class="exp">
-      <p>Full Drill Production S.L. was born in the middle of the storm: the "Sakura" album, at the moment Saiko was the most listened-to artist in Spain and the album was among the most anticipated releases in Spanish music that year. He led its audiovisual production, delivering the visual rollout in under three months, seven days a week, on thirteen-hour days and longer.</p>
-      <p>From that era came some of the biggest numbers of his catalog: "POLARIS (Remix)" with Feid, Quevedo, and Mora past 87 million views, "BADGYAL" past 43 million, "SUPERNOVA" past 24 million. The company moved more than a million euros in production budgets in its first full year, with him at the wheel of every shoot.</p>
+      <p>Full Drill Production S.L. was born in the middle of the storm: the “Sakura” album, at the moment Saiko was the most listened-to artist in Spain and the album was among the most anticipated releases in Spanish music that year. He led its audiovisual production, delivering the visual rollout in under three months, seven days a week, on thirteen-hour days and longer.</p>
+      <p>From that era came some of the biggest numbers of his catalog: “POLARIS (Remix)” with Feid, Quevedo, and Mora past 87 million views, “BADGYAL” past 43 million, “SUPERNOVA” past 24 million. The company moved more than a million euros in production budgets in its first full year, with him at the wheel of every shoot.</p>
       <p>When the album dropped, the summer became a tour: Bilbao, Barcelona, Cadiz, Sevilla, Marbella, and more, traveling Spain with the camera in hand. It was the most intense year of his life, and the proof that a self-taught kid from Ukraine could run productions at the top of a national industry.</p>
       </div></details></li>
     <li><span class="yr">2025</span>Publishes a 3-hour documentary telling the whole story, his last video in Spanish. Goes all-in on English content.
@@ -268,7 +270,7 @@
       </div></details></li>
     <li><span class="yr">2026</span>620M+ catalog views across 134 credits. Builds an AI content operation that runs the machine work while he creates.
       <details class="more"><summary>Read more</summary><div class="exp">
-      <p>The catalog snapshot in June 2026: over 620 million combined views across 134 credits, spanning Saiko, Camin, Cano, Fernando Costa, RVFV, Aissa, and Maka. The year runs on both engines at once: touring Spain filming RVFV's live shows as part of the camera team, and directing new productions.</p>
+      <p>The catalog snapshot in June 2026: over 620 million combined views across 134 credits, spanning Saiko, Camin, Cano, Fernando Costa, RVFV, Aissa, and Maka. The year runs on both engines at once: touring Spain filming RVFV’s live shows as part of the camera team, and directing new productions.</p>
       <p>Behind the scenes, the biggest build of the year is not a video. It is an AI content operation, a system of AI agents he directs like a crew, handling the machine work of content production so the human hours go where they matter: filming, directing, deciding. It is the same bet as 2011, made with new tools, and he documents it in public for the next generation of creators.</p>
       </div></details></li>
   </ol>
