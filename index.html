@@ -53,6 +53,7 @@
     --paper:#121212; --ink:#e8e2d8; --ink-strong:#fbf6ef; --ink-faint:#9a948a;
     --accent-day:#d99a00; --line:rgba(251,246,239,.16); --card:#1c1c1c; --nav-h:64px;
     --edge:max(24px,3.5vw,env(safe-area-inset-left),env(safe-area-inset-right));
+    --ease-out:cubic-bezier(.23,1,.32,1);
     color-scheme:dark;
     --display:'Geist',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'Inter',system-ui,sans-serif;
   }
@@ -60,7 +61,8 @@
   .skip{position:absolute;inset-inline-start:16px;top:-100px;z-index:20;padding:10px 14px;border-radius:6px;background:var(--ink-strong);color:var(--paper);font-weight:500;border:none}
   .skip:focus{top:12px}
   html{scroll-behavior:smooth}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none} .hero .copy>*{animation-name:fade} .card{transition-property:opacity,display} .card.hidden{transform:none} @starting-style{.card{transform:none}}}
+  @keyframes fade{from{opacity:0}}
   body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.7;font-size:17px;overflow-wrap:break-word}
   p,.tl li,.co p,.doc .cap{text-wrap:pretty}
   .wrap{max-width:1040px;margin:0 auto;padding-inline:max(24px,env(safe-area-inset-left),env(safe-area-inset-right))}
@@ -87,6 +89,9 @@
   .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at 18% 42%,rgba(18,18,18,.45) 0%,rgba(18,18,18,0) 100%),linear-gradient(180deg,rgba(18,18,18,.18) 0%,rgba(18,18,18,0) 30%,rgba(18,18,18,.6) 100%)}
   .hero>.wrap{position:relative;z-index:1;width:100%;max-width:none;padding:calc(var(--nav-h) + 24px) 24px 24px;padding-inline-start:var(--edge);flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:0}
   .hero .copy{transform:translateY(-8vh);max-width:min(46vw,640px)}
+  .hero .copy>*{animation:rise 500ms var(--ease-out) both}
+  .hero .role{animation-delay:80ms}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}}
   .hero h1{color:#fff;font-size:clamp(34px,5.2vw,80px);white-space:nowrap}
   .hero .role{font-size:clamp(17px,1.6vw,22px);margin:22px 0 0;max-width:46ch;color:rgba(255,255,255,.88)}
   /* proof strip (lives at the bottom of the hero) */
@@ -120,6 +125,9 @@
   .filters button.on{background:var(--ink-strong);color:var(--paper);border-color:var(--ink-strong)}
   .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
   a.card,.doc{border:none;display:block}
+  .card{transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),display 200ms allow-discrete}
+  @starting-style{.card{opacity:0;transform:scale(.97)}}
+  .card.hidden{opacity:0;transform:scale(.97);display:none}
   .card img,.doc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;background:var(--card)}
   .doc .cap{margin-top:10px;font-size:14px;color:var(--ink-faint)}
   .card .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px}
@@ -357,7 +365,7 @@
     btns.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
     b.classList.add('on');b.setAttribute('aria-pressed','true');
     const f=b.dataset.f;
-    cards.forEach(c=>c.style.display=(f==='all'||c.dataset.a===f)?'':'none');
+    cards.forEach(c=>c.classList.toggle('hidden',!(f==='all'||c.dataset.a===f)));
   }));
 </script>
 </body>
