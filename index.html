@@ -57,6 +57,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none}}
   body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.7;font-size:17px}
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
   a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
@@ -76,29 +77,19 @@
   nav ul a{font-size:15px;font-weight:500;font-family:var(--body);opacity:.9}
   nav ul a:hover{opacity:1}
   /* hero */
-  header.hero{position:relative;height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:center;color:#fff;overflow:hidden;background:#121212;text-align:left}
+  header.hero{position:relative;height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:center;color:#fff;overflow:hidden;background:var(--paper);text-align:left}
   .hero picture{position:absolute;inset:0}
   .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
   .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at 18% 42%,rgba(18,18,18,.45) 0%,rgba(18,18,18,0) 100%),linear-gradient(180deg,rgba(18,18,18,.18) 0%,rgba(18,18,18,0) 30%,rgba(18,18,18,.6) 100%)}
   .hero>.wrap{position:relative;z-index:1;width:100%;max-width:none;padding:calc(var(--nav-h) + 24px) 24px 24px max(24px,3.5vw);flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:0}
   .hero .copy{transform:translateY(-8vh);max-width:min(46vw,640px)}
-  .hero .copy h1{max-width:none}
-  .hero .label{color:rgba(255,255,255,.72)}
   .hero h1{color:#fff;font-size:clamp(34px,5.2vw,80px);white-space:nowrap}
   .hero .role{font-size:clamp(17px,1.6vw,22px);margin:22px 0 0;max-width:46ch;color:rgba(255,255,255,.88)}
-  @media(max-width:760px){.hero .role br{display:none}}
-  .hero .proof{position:relative;z-index:1;border:0;border-top:1px solid rgba(255,255,255,.18);padding:22px 0 26px;background:linear-gradient(180deg,rgba(18,18,18,0),rgba(18,18,18,.55));flex:none}
-  .hero .proof b{color:#fff}
-  .hero .proof span{color:rgba(255,255,255,.7)}
-  .hero .proof .lg{font-style:normal}
-  /* placeholder blocks */
-  .ph{border:1.5px dashed var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-faint);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(40,40,40,.025)}
-  .ph.still{aspect-ratio:16/9}
-  /* proof strip */
-  .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
+  /* proof strip (lives at the bottom of the hero) */
+  .proof{position:relative;z-index:1;flex:none;border-top:1px solid rgba(255,255,255,.18);padding:22px 0 26px;background:linear-gradient(180deg,rgba(18,18,18,0),rgba(18,18,18,.55))}
   .proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-  .proof b{display:block;font-family:var(--display);font-weight:600;letter-spacing:-0.045em;font-size:clamp(28px,4vw,44px);color:var(--ink-strong)}
-  .proof span{font-size:14px;color:var(--ink-faint)}
+  .proof b{display:block;font-family:var(--display);font-weight:600;letter-spacing:-0.045em;font-size:clamp(28px,4vw,44px);color:#fff}
+  .proof span{font-size:14px;color:rgba(255,255,255,.7)}
   section{padding:84px 0}
   /* bio */
   #about .wrap{max-width:none;padding:0 max(24px,3.5vw)}
@@ -124,10 +115,8 @@
   .filters button{font-family:var(--body);font-weight:500;font-size:14px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
   .filters button.on{background:var(--ink-strong);color:var(--paper);border-color:var(--ink-strong)}
   .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
-  a.card{border:none;display:block}
-  .card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;background:var(--card)}
-  .doc{border:none;display:block}
-  .doc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block}
+  a.card,.doc{border:none;display:block}
+  .card img,.doc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;background:var(--card)}
   .doc .cap{margin-top:10px;font-size:14px;color:var(--ink-faint)}
   .card .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px}
   .card .title{font-family:var(--display);font-weight:500;letter-spacing:-0.02em;font-size:17px;color:var(--ink-strong)}
@@ -172,16 +161,14 @@
     .hero>.wrap{min-height:100svh;padding:calc(var(--nav-h) + 16px) 20px 36px;justify-content:flex-end;align-items:center}
     .hero .copy{max-width:none;transform:none}
     .hero .role{margin-left:auto;margin-right:auto}
-    .hero .proof{background:var(--paper);border-top:1px solid var(--line);padding:28px 0 32px}
+    .hero .role br{display:none}
     .hero h1{font-size:clamp(30px,10.5vw,44px)}
-    .hero .proof{padding:18px 0 20px}
-    .hero .proof b{font-size:26px}
-    .hero .proof span{font-size:12.5px}
-    .hero .proof .lg{display:none}
-    .hero .proof .wrap{gap:14px 8px}
-    .proof .wrap{grid-template-columns:repeat(2,1fr)}
+    .proof{background:var(--paper);border-top:1px solid var(--line);padding:18px 0 20px}
+    .proof .wrap{grid-template-columns:repeat(2,1fr);gap:14px 12px}
+    .proof b{font-size:26px}
+    .proof span{font-size:12.5px}
+    .proof .lg{display:none}
     nav ul{display:none}
-    .hero .proof .wrap{gap:14px 12px}
     section{padding:60px 0}
   }
 </style>
@@ -213,11 +200,10 @@
   <div class="proof"><div class="wrap">
     <div><b>620M+</b><span>combined views</span></div>
     <div><b>134</b><span>catalog credits</span></div>
-    <div><b>€1M+</b><span><em class="lg">production </em>budgets managed</span></div>
+    <div><b>€1M+</b><span><span class="lg">production </span>budgets managed</span></div>
     <div><b>15</b><span>years behind the camera</span></div>
   </div></div>
 </header>
-
 
 <section id="about"><div class="wrap bio-grid">
   <div>
@@ -351,7 +337,6 @@
 </div></footer>
 
 <script>
-  const mq=new URLSearchParams(location.search).get('m');if(mq){document.querySelector('.hero source').srcset='assets/hero-mobile-'+mq+'.jpg'}
   const nav=document.getElementById('nav'),hero=document.querySelector('.hero');
   new IntersectionObserver(([e])=>nav.classList.toggle('solid',!e.isIntersecting),{rootMargin:'-64px 0px 0px 0px',threshold:0}).observe(hero);
   const btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('.card');
