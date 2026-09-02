@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://olegbrovchenko.com/sitemap.xml
