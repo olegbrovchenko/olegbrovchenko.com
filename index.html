@@ -61,7 +61,7 @@
   .skip{position:absolute;inset-inline-start:16px;top:-100px;z-index:20;padding:10px 14px;border-radius:6px;background:var(--ink-strong);color:var(--paper);font-weight:500;border:none}
   .skip:focus{top:12px}
   html{scroll-behavior:smooth}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none} .hero .copy>*{animation-name:fade} .card{transition-property:opacity,display} .card.hidden{transform:none} @starting-style{.card{transform:none}}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} nav{transition:none} .hero .copy>*{animation-name:fade}}
   @keyframes fade{from{opacity:0}}
   body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;line-height:1.7;font-size:17px;overflow-wrap:break-word}
   p,.tl li,.co p,.doc .cap{text-wrap:pretty}
@@ -125,9 +125,9 @@
   .filters button.on{background:var(--ink-strong);color:var(--paper);border-color:var(--ink-strong)}
   .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
   a.card,.doc{border:none;display:block}
-  .card{transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),display 200ms allow-discrete}
-  @starting-style{.card{opacity:0;transform:scale(.97)}}
-  .card.hidden{opacity:0;transform:scale(.97);display:none}
+  .wall{transition:opacity 160ms var(--ease-out)}
+  .wall.swap{opacity:0}
+  .card.hidden{display:none}
   .card img,.doc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;background:var(--card)}
   .doc .cap{margin-top:10px;font-size:14px;color:var(--ink-faint)}
   .card .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px}
@@ -361,11 +361,15 @@
   let tick=false;const solid=()=>{nav.classList.toggle('solid',proof.getBoundingClientRect().top<=navH);tick=false};
   addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(solid)}},{passive:true});addEventListener('resize',solid);solid();
   const btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('.card');
+  const wall=document.querySelector('.wall');let swapTimer;
   btns.forEach(b=>b.addEventListener('click',()=>{
+    if(b.classList.contains('on'))return;
     btns.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
     b.classList.add('on');b.setAttribute('aria-pressed','true');
     const f=b.dataset.f;
-    cards.forEach(c=>c.classList.toggle('hidden',!(f==='all'||c.dataset.a===f)));
+    // crossfade the whole wall: fade out, re-lay the grid while invisible, fade back in (no cards sliding)
+    clearTimeout(swapTimer);wall.classList.add('swap');
+    swapTimer=setTimeout(()=>{cards.forEach(c=>c.classList.toggle('hidden',!(f==='all'||c.dataset.a===f)));requestAnimationFrame(()=>wall.classList.remove('swap'))},170);
   }));
 </script>
 </body>
