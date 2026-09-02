@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://olegbrovchenko.com/</loc><lastmod>2026-09-02</lastmod></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://olegbrovchenko.com/</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>1.0</priority>
+<image:image><image:loc>https://olegbrovchenko.com/og.jpg</image:loc><image:title>Oleg Brovchenko, filmmaker and director</image:title></image:image>
+<image:image><image:loc>https://olegbrovchenko.com/assets/hero.jpg</image:loc><image:title>Oleg Brovchenko filming a crowd from the stage</image:title></image:image>
+<image:image><image:loc>https://olegbrovchenko.com/assets/stills/BORdtRZJ5ZI.jpg</image:loc><image:title>Oleg Brovchenko 2011 to 2025, documentary cover</image:title></image:image>
+</url>
+</urlset>
