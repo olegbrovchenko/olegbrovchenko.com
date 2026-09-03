@@ -359,15 +359,15 @@
   .hero picture{position:absolute;inset:0}
   .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
   .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at 18% 42%,rgba(18,18,18,.45) 0%,rgba(18,18,18,0) 100%),linear-gradient(180deg,rgba(18,18,18,.18) 0%,rgba(18,18,18,0) 30%,rgba(18,18,18,.6) 100%)}
-  .hero>.wrap{position:relative;z-index:1;width:100%;max-width:none;padding:calc(var(--nav-h) + 24px) 24px 24px;padding-inline-start:var(--edge);flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:0}
-  .hero .copy{transform:translateY(-8vh);max-width:min(46vw,640px)}
+  .hero>.wrap{position:relative;z-index:1;width:100%;max-width:none;padding:24px;padding-inline-start:var(--edge);flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:0}
+  .hero .copy{max-width:min(46vw,640px)}
   .hero .copy>*{animation:rise 500ms var(--ease-out) both}
   .hero .role{animation-delay:80ms}
   @keyframes rise{from{opacity:0;transform:translateY(8px)}}
   .hero h1{color:#fff;font-size:clamp(34px,5.2vw,80px);white-space:nowrap}
   .hero .role{font-size:clamp(17px,1.6vw,22px);margin:22px 0 0;max-width:46ch;color:rgba(255,255,255,.88)}
   /* proof strip (lives at the bottom of the hero) */
-  .proof{position:relative;z-index:1;flex:none;border-top:1px solid rgba(255,255,255,.18);padding:22px 0 26px;background:linear-gradient(180deg,rgba(18,18,18,0),rgba(18,18,18,.55))}
+  .proof{position:absolute;left:0;right:0;bottom:0;z-index:1;flex:none;border-top:1px solid rgba(255,255,255,.18);padding:22px 0 26px;background:linear-gradient(180deg,rgba(18,18,18,0),rgba(18,18,18,.55))}
   .proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
   .proof b{display:block;font-family:var(--display);font-weight:600;letter-spacing:-0.045em;font-size:clamp(28px,4vw,44px);color:#fff}
   .proof span{font-size:14px;color:rgba(255,255,255,.7)}
@@ -451,7 +451,7 @@
     .hero .role{margin-left:auto;margin-right:auto}
     .hero .role br{display:none}
     .hero h1{font-size:clamp(30px,10.5vw,44px)}
-    .proof{background:var(--paper);border-top:1px solid var(--line);padding:18px 0 20px}
+    .proof{position:static;background:var(--paper);border-top:1px solid var(--line);padding:18px 0 20px}
     .proof .wrap{grid-template-columns:repeat(2,1fr);gap:14px 12px}
     .proof b{font-size:26px}
     .proof span{font-size:12.5px}
