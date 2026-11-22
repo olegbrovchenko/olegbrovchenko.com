@@ -432,15 +432,24 @@
   @media(max-width:1000px){.wall{grid-template-columns:repeat(2,1fr)}.card.lead{grid-row:auto}.card.lead picture{aspect-ratio:16/9;flex:none}}
   @media(max-width:560px){.wall{grid-template-columns:1fr}.card.lead{grid-column:auto}.card.lead .title{font-size:22px}.filters{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filters button{padding:0 12px;font-size:13px;flex:none}.filters button .n{display:none}}
   .catalog-line{margin-top:34px;font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink-faint)}
-  /* companies */
-  .cos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .co{border:1px solid var(--line);border-radius:8px;padding:30px}
-  .co h3{font-family:var(--display);font-weight:500;letter-spacing:-0.035em;font-size:22px;color:var(--ink-strong);margin-bottom:8px}
-  .co p{font-size:15px;color:var(--ink)}
-  .co .label{margin-top:16px;display:inline-block}
-  /* topics + connect */
-  .topics ul{display:flex;flex-wrap:wrap;gap:12px;list-style:none}
-  .topics li{border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:15px}
+  /* companies: image-topped cards in the NGC drafts' material, the frame fading into the card */
+  .cos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .co{display:flex;flex-direction:column;border:none;border-radius:22px;overflow:hidden;background:#161616;color:inherit;isolation:isolate;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 0 1px rgba(255,255,255,.07),0 1px 2px rgba(0,0,0,.3);transition:background .15s ease-out}
+  .co-img{position:relative;display:block;aspect-ratio:20/9;overflow:hidden}
+  .co-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease-out)}
+  .co-img::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(180deg,rgba(22,22,22,0),#161616)}
+  .co-body{position:relative;z-index:1;margin-top:-36px;padding:0 32px 30px;display:flex;flex-direction:column;flex:1}
+  .co h3{font-family:var(--display);font-weight:600;letter-spacing:-0.035em;font-size:clamp(24px,2.3vw,32px);line-height:1.1;color:#f2f2f2;margin-bottom:10px}
+  .co p{font-size:15.5px;line-height:1.6;color:#a3a3a3;max-width:52ch}
+  .co-foot{margin-top:auto;padding-top:22px}
+  .tag{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);font:500 13px/1 var(--display);letter-spacing:-0.01em;color:#f2f2f2;white-space:nowrap;transition:background .15s ease-out}
+  .tag svg{width:14px;height:14px;transition:transform .15s ease-out}
+  a.co:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  @media(hover:hover){a.co:hover{background:#1b1b1b}a.co:hover .co-img::after{background:linear-gradient(180deg,rgba(27,27,27,0),#1b1b1b)}a.co:hover img{transform:scale(1.03)}a.co:hover .tag{background:rgba(255,255,255,.1)}a.co:hover .tag svg{transform:translateX(3px)}}
+  /* topics: quiet tags under the bio */
+  .topics-row{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:28px}
+  .topics-row .tag{color:#cfcfcf}
+  /* connect */
   .connect .socials{display:flex;gap:20px;margin:20px 0}
   .connect .socials a{font-weight:500;display:inline-block;padding-block:6px}
   .capture{margin-top:34px;max-width:52ch}
@@ -458,7 +467,8 @@
     .bio-grid>div:first-child{width:100%}
     .bio p{margin-left:auto;margin-right:auto}
     .doc .cap{text-align:center}
-    .topics ul,.filters{justify-content:center}
+    .topics-row,.filters{justify-content:center}
+    .co-body{padding:0 22px 24px}
     .work-head{flex-direction:column;align-items:center}
     .connect .socials{justify-content:center}
     .connect .wrap{text-align:center}
@@ -534,6 +544,7 @@
     <p>Oleg Brovchenko is a creative producer and filmmaker based in Madrid. Born in Ukraine, he picked up a camera at 14 and taught himself everything. In 2015 he left for Spain and rebuilt from zero, not speaking a word of Spanish.</p>
     <p>What followed was a climb from barbershop videos in Lorca to directing productions for some of Spain’s biggest urban artists: 219 music videos for 54 artists, with over 744 million views on YouTube. In 2024 he founded Full Drill Production S.L., which managed over €1M in production budgets in its first full year.</p>
     <p>Today he runs a one-man AI-powered studio: an AI content operation handles the machine work while he directs, films, and documents how it’s done for the next generation of creators.</p>
+    <ul class="topics-row" aria-label="Topics"><li class="tag">Filmmaking</li><li class="tag">Color grading · DaVinci Resolve</li><li class="tag">Content strategy</li><li class="tag">Directing AI</li></ul>
   </div>
 </div></section>
 
@@ -623,31 +634,27 @@
 </div></section>
 
 <section id="companies"><div class="wrap">
-  <h2>Companies &amp; work</h2>
+  <h2>Companies</h2>
   <div class="cos">
     <div class="co">
-      <h3>Full Drill Production S.L.</h3>
-      <p>Madrid production company behind the credits above. Over €1M in production budgets managed in its first full year.</p>
-      <span class="label">Madrid · since 2024</span>
+      <picture class="co-img"><source type="image/webp" srcset="assets/co-fulldrill.webp"><img src="assets/co-fulldrill.jpg" alt="A fight-night crowd from a Full Drill Production music video" width="1200" height="525" loading="lazy" decoding="async"></picture>
+      <div class="co-body">
+        <h3>Full Drill Production S.L.</h3>
+        <p>Madrid production company behind the credits above. Over €1M in production budgets managed in its first full year.</p>
+        <div class="co-foot"><span class="tag">Madrid · since 2024</span></div>
+      </div>
     </div>
-    <div class="co">
-      <h3>brovchenko.store</h3>
-      <p>Color grading systems, textures, and tools for filmmakers, built from the same pipeline used on every credit on this page.</p>
-      <span class="label"><a href="https://www.brovchenko.store/">brovchenko.store →</a></span>
-    </div>
-    <!-- third company card slot: reserved -->
+    <a class="co" href="https://www.brovchenko.store/" target="_blank" rel="noopener">
+      <picture class="co-img"><source type="image/webp" srcset="assets/co-store.webp"><img src="assets/co-store.jpg" alt="A graded desert frame with a dragon, from Oleg's 2024 showreel" width="1200" height="525" loading="lazy" decoding="async"></picture>
+      <div class="co-body">
+        <h3>brovchenko.store</h3>
+        <p>Color grading systems, textures, and tools for filmmakers, built from the same pipeline used on every credit on this page.</p>
+        <div class="co-foot"><span class="tag">Visit the store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </div>
+    </a>
   </div>
 </div></section>
 
-<section class="topics"><div class="wrap">
-  <h2>Topics</h2>
-  <ul>
-    <li>Filmmaking</li>
-    <li>Color grading · DaVinci Resolve</li>
-    <li>Content strategy</li>
-    <li>Building an AI content operation</li>
-  </ul>
-</div></section>
 
 <section class="connect" id="contact"><div class="wrap">
   <h2>Contact</h2>
