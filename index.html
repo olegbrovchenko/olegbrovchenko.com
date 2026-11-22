@@ -358,12 +358,12 @@
   nav ul{display:flex;gap:26px;list-style:none}
   nav ul a{font-size:15px;font-weight:500;font-family:var(--body);opacity:.9;display:inline-block;padding-block:8px}
   /* hero: a full-width reel strip with a dark fade at its foot, the name over the fade, the numbers under it */
-  header.hero{position:relative;color:#fff;background:var(--paper);text-align:left}
-  .reel{position:relative;z-index:0;isolation:isolate;width:100%;height:clamp(360px,64svh,46vw);overflow:hidden;background:#000}
+  header.hero{position:relative;color:#fff;background:var(--paper);text-align:left;display:flex;flex-direction:column;min-height:100svh}
+  .reel{position:relative;z-index:0;isolation:isolate;width:100%;flex:1 1 auto;min-height:clamp(260px,42svh,520px);overflow:hidden;background:#000}
   .reel picture,.reel video{position:absolute;inset:0;z-index:0;width:100%;height:100%}
   .reel img,.reel video{object-fit:cover;object-position:center 40%;width:100%;height:100%;display:block}
   .reel::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,18,18,.45) 0%,rgba(18,18,18,0) 18%,rgba(18,18,18,0) 50%,rgba(18,18,18,.72) 80%,#121212 100%)}
-  .hero>.wrap{position:relative;z-index:1;margin-top:clamp(-220px,-13vw,-90px)}
+  .hero>.wrap{position:relative;z-index:1;width:100%;margin-top:clamp(-220px,-13vw,-90px);padding-bottom:clamp(32px,6svh,72px)}
   .hero .copy{display:flex;flex-direction:column;align-items:center;text-align:center}
   .hero .copy>*{animation:rise 500ms var(--ease-out) both}
   .hero .role span{display:block}
@@ -477,7 +477,6 @@
     .catalog-line{text-align:center}
     /* phone: a 4:5 reel at the top, the name over its fade, the numbers in two rows */
     header.hero{text-align:center}
-    .reel{height:min(125vw,68svh)}
     .reel img,.reel video{object-position:center}
     .hero>.wrap{margin-top:-96px}
     .hero .role{line-height:1.6;margin:14px auto 0;font-size:min(15px,4.1vw)}
