@@ -430,8 +430,8 @@
   @media(max-width:1000px){.wall{grid-template-columns:repeat(2,1fr)}.card.lead{grid-row:auto}.card.lead picture{aspect-ratio:16/9;flex:none}}
   @media(max-width:560px){.wall{grid-template-columns:1fr}.card.lead{grid-column:auto}.card.lead .title{font-size:22px}}
   .catalog-line{margin-top:34px;font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink-faint)}
-  /* companies: image-topped cards in the NGC drafts' material, the frame fading into the card */
-  .cos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  /* projects: image-topped cards (one per project, new ones flow into the grid) in the NGC drafts' material, the frame fading into the card */
+  .cos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px}
   .co{display:flex;flex-direction:column;border:none;border-radius:22px;overflow:hidden;background:#161616;color:inherit;isolation:isolate;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 0 1px rgba(255,255,255,.07),0 1px 2px rgba(0,0,0,.3);transition:background .15s ease-out}
   .co-img{position:relative;display:block;aspect-ratio:20/9;overflow:hidden}
   .co-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease-out)}
@@ -503,7 +503,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#journey">Journey</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#companies">Companies</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -628,14 +628,14 @@
   <p class="catalog-line">The full count: 219 music videos for 54 artists, among them Saiko (32), Camin (28), Cano (20), Fernando Costa (15), RVFV (15), Aissa (8), 24KEEFY (8), J Prince (7) and Kaydy Cain (6). YouTube views counted 22 November 2026.</p>
 </div></section>
 
-<section id="companies"><div class="wrap">
-  <h2>Companies</h2>
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
   <div class="cos">
     <div class="co">
       <picture class="co-img"><source type="image/webp" srcset="assets/co-fulldrill.webp"><img src="assets/co-fulldrill.jpg" alt="A fight-night crowd from a Full Drill Production music video" width="1200" height="525" loading="lazy" decoding="async"></picture>
       <div class="co-body">
         <h3>Full Drill Production S.L.</h3>
-        <p>Madrid production company behind the credits above. Over €1M in production budgets managed in its first full year.</p>
+        <p>The production company behind the credits above, in Madrid. Over €1M in production budgets managed in its first full year.</p>
         <div class="co-foot"><span class="tag">Madrid · since 2024</span></div>
       </div>
     </div>
