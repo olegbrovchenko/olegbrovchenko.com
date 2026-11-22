@@ -408,18 +408,10 @@
   .doc .cap{margin-top:10px;font-size:14px;color:var(--ink-faint)}
   .work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px 32px;flex-wrap:wrap;margin-bottom:28px}
   .work-head h2{margin-bottom:0}
-  /* filters: one segmented well, the picked tab raised (same material as the NGC drafts) */
-  .filters{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:13px;background:#080808;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 1px 2px rgba(0,0,0,.5)}
-  .filters button{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 14px;border:0;border-radius:9px;background:transparent;color:#8a8a8a;font:500 14px/1 var(--display);letter-spacing:-0.01em;cursor:pointer;transition:background .15s ease-out,color .15s ease-out}
-  .filters button .n{font:500 12px/1 var(--body);opacity:.6;font-variant-numeric:tabular-nums}
-  .filters button.on{background:#232323;color:#f2f2f2;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),inset 0 0 0 1px rgba(255,255,255,.06),inset 0 -1px 0 rgba(0,0,0,.28),0 1px 1px rgba(0,0,0,.32)}
-  .filters button:focus-visible{outline:2px solid #fff;outline-offset:2px}
-  @media(hover:hover){.filters button:not(.on):hover{color:#f2f2f2;background:rgba(255,255,255,.04)}}
+  .work-note{font-size:14px;color:#8a8a8a}
   /* cards: the still on top fades into the card, words on the card (no colour or camera only credits here, they stay in the Credits data) */
-  .wall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;transition:opacity 160ms var(--ease-out)}
-  .wall.swap{opacity:0}
+  .wall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   a.card{display:flex;flex-direction:column;border:none;border-radius:18px;overflow:hidden;background:#161616;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 0 1px rgba(255,255,255,.07),0 1px 2px rgba(0,0,0,.3);isolation:isolate;transition:background .15s ease-out}
-  .card.hidden{display:none}
   .card picture{position:relative;display:block;aspect-ratio:16/9;overflow:hidden}
   .card picture::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,rgba(22,22,22,0),#161616)}
   .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease-out)}
@@ -436,7 +428,7 @@
   .card.lead .title{font-size:clamp(22px,2.3vw,32px);line-height:1.1}
   .card.lead .artist,.card.lead .views{font-size:15px}
   @media(max-width:1000px){.wall{grid-template-columns:repeat(2,1fr)}.card.lead{grid-row:auto}.card.lead picture{aspect-ratio:16/9;flex:none}}
-  @media(max-width:560px){.wall{grid-template-columns:1fr}.card.lead{grid-column:auto}.card.lead .title{font-size:22px}.filters{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filters button{padding:0 12px;font-size:13px;flex:none}.filters button .n{display:none}}
+  @media(max-width:560px){.wall{grid-template-columns:1fr}.card.lead{grid-column:auto}.card.lead .title{font-size:22px}}
   .catalog-line{margin-top:34px;font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink-faint)}
   /* companies: image-topped cards in the NGC drafts' material, the frame fading into the card */
   .cos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -476,7 +468,6 @@
     .bio-grid{display:flex;flex-direction:column;align-items:stretch;gap:28px;text-align:left}
     #about h2{text-align:left}
     .bio-grid>div:first-child{width:100%}
-    .filters{justify-content:center}
     .co-body{padding:0 22px 24px}
     .work-head{flex-direction:column;align-items:center}
     .connect .socials{justify-content:center}
@@ -617,28 +608,22 @@
 <section id="work"><div class="wrap">
   <div class="work-head">
     <h2>Selected work</h2>
-    <div class="filters" role="group" aria-label="Filter by artist">
-      <button class="on" aria-pressed="true" data-f="all">All<span class="n">13</span></button>
-      <button aria-pressed="false" data-f="saiko">Saiko<span class="n">6</span></button>
-      <button aria-pressed="false" data-f="camin">Camin<span class="n">3</span></button>
-      <button aria-pressed="false" data-f="aissa">Aissa<span class="n">2</span></button>
-      <button aria-pressed="false" data-f="more">Others<span class="n">2</span></button>
-    </div>
+    <p class="work-note">The 13 most watched of 219 music videos</p>
   </div>
   <div class="wall">
-    <a class="card lead" data-a="saiko" href="https://www.youtube.com/watch?v=8obld3JrBNM" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/8obld3JrBNM.webp"><img src="assets/stills/8obld3JrBNM.jpg" alt="Cosas que no te dije - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Cosas que no te dije</span><span class="artist">Saiko · 2021</span></div><span class="views">125M</span></div></a>
-    <a class="card" data-a="saiko" href="https://www.youtube.com/watch?v=SkBML8JgD0k" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/SkBML8JgD0k.webp"><img src="assets/stills/SkBML8JgD0k.jpg" alt="POLARIS (Remix) ft. Feid, Quevedo, Mora - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">POLARIS (Remix) ft. Feid, Quevedo, Mora</span><span class="artist">Saiko · 2023</span></div><span class="views">90M</span></div></a>
-    <a class="card" data-a="aissa" href="https://www.youtube.com/watch?v=6CDAZ2I1LwQ" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/6CDAZ2I1LwQ.webp"><img src="assets/stills/6CDAZ2I1LwQ.jpg" alt="LAS BRATZ (Remix) - Aissa ft. Saiko, JC Reyes, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">LAS BRATZ (Remix)</span><span class="artist">Aissa ft. Saiko, JC Reyes · 2023</span></div><span class="views">49M</span></div></a>
-    <a class="card" data-a="saiko" href="https://www.youtube.com/watch?v=_WHBVsQnrFc" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/_WHBVsQnrFc.webp"><img src="assets/stills/_WHBVsQnrFc.jpg" alt="BADGYAL ft. JC Reyes, Dei V - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">BADGYAL ft. JC Reyes, Dei V</span><span class="artist">Saiko · 2024</span></div><span class="views">45M</span></div></a>
-    <a class="card" data-a="saiko" href="https://www.youtube.com/watch?v=BbZi8xGMyuM" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/BbZi8xGMyuM.webp"><img src="assets/stills/BbZi8xGMyuM.jpg" alt="SUPERNOVA - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">SUPERNOVA</span><span class="artist">Saiko · 2023</span></div><span class="views">25M</span></div></a>
-    <a class="card" data-a="more" href="https://www.youtube.com/watch?v=qW6XIN5bKnY" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/qW6XIN5bKnY.webp"><img src="assets/stills/qW6XIN5bKnY.jpg" alt="Barro - DUKI, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Barro</span><span class="artist">DUKI · 2024</span></div><span class="views">17M</span></div></a>
-    <a class="card" data-a="saiko" href="https://www.youtube.com/watch?v=NqdLO7LKfpw" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/NqdLO7LKfpw.webp"><img src="assets/stills/NqdLO7LKfpw.jpg" alt="ESKELETO ft. Bryant Myers - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">ESKELETO ft. Bryant Myers</span><span class="artist">Saiko · 2024</span></div><span class="views">17M</span></div></a>
-    <a class="card" data-a="camin" href="https://www.youtube.com/watch?v=idutQxs2eA4" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/idutQxs2eA4.webp"><img src="assets/stills/idutQxs2eA4.jpg" alt="Capos ft. Juanjo - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Capos ft. Juanjo</span><span class="artist">Camin · 2021</span></div><span class="views">16M</span></div></a>
-    <a class="card" data-a="saiko" href="https://www.youtube.com/watch?v=7dgZrswejk8" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/7dgZrswejk8.webp"><img src="assets/stills/7dgZrswejk8.jpg" alt="YO LO SOÑÉ ft. Omar Montes - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">YO LO SOÑÉ ft. Omar Montes</span><span class="artist">Saiko · 2024</span></div><span class="views">14M</span></div></a>
-    <a class="card" data-a="camin" href="https://www.youtube.com/watch?v=QCo_ETppB-I" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/QCo_ETppB-I.webp"><img src="assets/stills/QCo_ETppB-I.jpg" alt="Esquina ft. JC Reyes - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Esquina ft. JC Reyes</span><span class="artist">Camin · 2021</span></div><span class="views">14M</span></div></a>
-    <a class="card" data-a="aissa" href="https://www.youtube.com/watch?v=Ma-BXYXX-nU" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/Ma-BXYXX-nU.webp"><img src="assets/stills/Ma-BXYXX-nU.jpg" alt="MUCHACHA ft. RVFV - Aissa, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">MUCHACHA ft. RVFV</span><span class="artist">Aissa · 2026</span></div><span class="views">12M</span></div></a>
-    <a class="card" data-a="more" href="https://www.youtube.com/watch?v=KsXqP1AsxqI" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/KsXqP1AsxqI.webp"><img src="assets/stills/KsXqP1AsxqI.jpg" alt="Amor Tóxico ft. La Una - Titobi, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Amor Tóxico ft. La Una</span><span class="artist">Titobi · 2021</span></div><span class="views">11M</span></div></a>
-    <a class="card" data-a="camin" href="https://www.youtube.com/watch?v=zfnQxaIpOaw" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/zfnQxaIpOaw.webp"><img src="assets/stills/zfnQxaIpOaw.jpg" alt="BRASILEÑO - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">BRASILEÑO</span><span class="artist">Camin · 2025</span></div><span class="views">10M</span></div></a>
+    <a class="card lead" href="https://www.youtube.com/watch?v=8obld3JrBNM" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/8obld3JrBNM.webp"><img src="assets/stills/8obld3JrBNM.jpg" alt="Cosas que no te dije - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Cosas que no te dije</span><span class="artist">Saiko · 2021</span></div><span class="views">125M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=SkBML8JgD0k" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/SkBML8JgD0k.webp"><img src="assets/stills/SkBML8JgD0k.jpg" alt="POLARIS (Remix) ft. Feid, Quevedo, Mora - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">POLARIS (Remix) ft. Feid, Quevedo, Mora</span><span class="artist">Saiko · 2023</span></div><span class="views">90M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=6CDAZ2I1LwQ" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/6CDAZ2I1LwQ.webp"><img src="assets/stills/6CDAZ2I1LwQ.jpg" alt="LAS BRATZ (Remix) - Aissa ft. Saiko, JC Reyes, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">LAS BRATZ (Remix)</span><span class="artist">Aissa ft. Saiko, JC Reyes · 2023</span></div><span class="views">49M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=_WHBVsQnrFc" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/_WHBVsQnrFc.webp"><img src="assets/stills/_WHBVsQnrFc.jpg" alt="BADGYAL ft. JC Reyes, Dei V - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">BADGYAL ft. JC Reyes, Dei V</span><span class="artist">Saiko · 2024</span></div><span class="views">45M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=BbZi8xGMyuM" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/BbZi8xGMyuM.webp"><img src="assets/stills/BbZi8xGMyuM.jpg" alt="SUPERNOVA - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">SUPERNOVA</span><span class="artist">Saiko · 2023</span></div><span class="views">25M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=qW6XIN5bKnY" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/qW6XIN5bKnY.webp"><img src="assets/stills/qW6XIN5bKnY.jpg" alt="Barro - DUKI, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Barro</span><span class="artist">DUKI · 2024</span></div><span class="views">17M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=NqdLO7LKfpw" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/NqdLO7LKfpw.webp"><img src="assets/stills/NqdLO7LKfpw.jpg" alt="ESKELETO ft. Bryant Myers - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">ESKELETO ft. Bryant Myers</span><span class="artist">Saiko · 2024</span></div><span class="views">17M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=idutQxs2eA4" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/idutQxs2eA4.webp"><img src="assets/stills/idutQxs2eA4.jpg" alt="Capos ft. Juanjo - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Capos ft. Juanjo</span><span class="artist">Camin · 2021</span></div><span class="views">16M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=7dgZrswejk8" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/7dgZrswejk8.webp"><img src="assets/stills/7dgZrswejk8.jpg" alt="YO LO SOÑÉ ft. Omar Montes - Saiko, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">YO LO SOÑÉ ft. Omar Montes</span><span class="artist">Saiko · 2024</span></div><span class="views">14M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=QCo_ETppB-I" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/QCo_ETppB-I.webp"><img src="assets/stills/QCo_ETppB-I.jpg" alt="Esquina ft. JC Reyes - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Esquina ft. JC Reyes</span><span class="artist">Camin · 2021</span></div><span class="views">14M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=Ma-BXYXX-nU" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/Ma-BXYXX-nU.webp"><img src="assets/stills/Ma-BXYXX-nU.jpg" alt="MUCHACHA ft. RVFV - Aissa, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title">MUCHACHA ft. RVFV</span><span class="artist">Aissa · 2026</span></div><span class="views">12M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=KsXqP1AsxqI" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/KsXqP1AsxqI.webp"><img src="assets/stills/KsXqP1AsxqI.jpg" alt="Amor Tóxico ft. La Una - Titobi, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">Amor Tóxico ft. La Una</span><span class="artist">Titobi · 2021</span></div><span class="views">11M</span></div></a>
+    <a class="card" href="https://www.youtube.com/watch?v=zfnQxaIpOaw" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="assets/stills/zfnQxaIpOaw.webp"><img src="assets/stills/zfnQxaIpOaw.jpg" alt="BRASILEÑO - Camin, official video still" width="960" height="540" loading="lazy" decoding="async"></picture><div class="meta"><div><span class="title" lang="es">BRASILEÑO</span><span class="artist">Camin · 2025</span></div><span class="views">10M</span></div></a>
   </div>
   <p class="catalog-line">The full count: 219 music videos for 54 artists, among them Saiko (32), Camin (28), Cano (20), Fernando Costa (15), RVFV (15), Aissa (8), 24KEEFY (8), J Prince (7) and Kaydy Cain (6). YouTube views counted 22 November 2026.</p>
 </div></section>
@@ -691,17 +676,6 @@
   // reduced motion: the still frame only, the reel never plays
   const vid=reel.querySelector('video');if(matchMedia('(prefers-reduced-motion:reduce)').matches){vid.removeAttribute('autoplay');vid.pause()}
   addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(solid)}},{passive:true});addEventListener('resize',solid);solid();
-  const btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('.card');
-  const wall=document.querySelector('.wall');let swapTimer;
-  btns.forEach(b=>b.addEventListener('click',()=>{
-    if(b.classList.contains('on'))return;
-    btns.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
-    b.classList.add('on');b.setAttribute('aria-pressed','true');
-    const f=b.dataset.f;
-    // crossfade the whole wall: fade out, re-lay the grid while invisible, fade back in (no cards sliding)
-    clearTimeout(swapTimer);wall.classList.add('swap');
-    swapTimer=setTimeout(()=>{cards.forEach(c=>c.classList.toggle('hidden',!(f==='all'||c.dataset.a===f)));cards[0].classList.toggle('lead',f==='all');requestAnimationFrame(()=>wall.classList.remove('swap'))},170);
-  }));
 </script>
 </body>
 </html>
